@@ -16,7 +16,8 @@ class PostController extends Controller
 
     public function index(User $user)
     {
-        $posts = Post::where('user_id', $user->id)->latest()->paginate(20);
+        //$posts = Post::where('user_id', $user->id)->get();
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(12);
         
         return view('dashboard', [
             'user' => $user, 
@@ -37,12 +38,12 @@ class PostController extends Controller
             'imagen' => 'required'
         ]);
 
-        // Post::create([
-        //     'titulo' => $request->titulo,
-        //     'descripcion' => $request->descripcion,
-        //     'imagen' => $request->imagen,
-        //     'user_id' => auth()->user()->id
-        // ]);
+         Post::create([
+             'titulo' => $request->titulo,
+             'descripcion' => $request->descripcion,
+             'imagen' => $request->imagen,
+             'user_id' => auth()->user()->id
+         ]);
 
         // Otra forma
         // $post = new Post;
@@ -52,12 +53,12 @@ class PostController extends Controller
         // $post->user_id = auth()->user()->id;
         // $post->save();
 
-        $request->user()->posts()->create([
-            'titulo' => $request->titulo,
-            'descripcion' => $request->descripcion,
-            'imagen' => $request->imagen,
-            'user_id' => auth()->user()->id
-        ]);
+       // $request->user()->posts()->create([
+       //     'titulo' => $request->titulo,
+       //     'descripcion' => $request->descripcion,
+       //     'imagen' => $request->imagen,
+       //     'user_id' => auth()->user()->id
+       // ]);
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
