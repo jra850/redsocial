@@ -11,6 +11,7 @@ class ComentarioController extends Controller
 {
     public function store(Request $request, User $user, Post $post)
     {
+        //dd($post->id);
         // validar
         $this->validate($request, [
             'comentario' => 'required|max:255'
@@ -24,6 +25,6 @@ class ComentarioController extends Controller
         ]);
 
         // Imprimir un mensaje
-        return back()->with('mensaje', 'Comentario Realizado Correctamente');
+        return back()->with('mensaje', 'Comentario Insertado Correctamente');
     }
 }
