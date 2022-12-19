@@ -9,7 +9,6 @@ class LoginController extends Controller
     public function index()
     {
         return view('auth.login');
-
     }
 
     public function store(Request $request)
@@ -17,12 +16,15 @@ class LoginController extends Controller
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
-
         ]);
 
-        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) 
+        {
             return back()->with('mensaje', 'Credenciales incorrectas');
         }
+
+        // Reescribir el nuevo passwo
+
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
