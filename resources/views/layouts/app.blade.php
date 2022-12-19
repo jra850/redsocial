@@ -13,9 +13,9 @@
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between item-center">
-                <h1 class="text text-4xl font-extrabold">
+                <a href="{{ route('home') }}" class="text text-4xl font-extrabold">
                     RED SOCIAL
-                </h1>
+                </a>
 
                 @auth
                  
