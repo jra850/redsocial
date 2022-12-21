@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
@@ -85,5 +86,21 @@ class PostController extends Controller
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
+
+
+    public function index2(Request $request)
+        {
+            //$usuarios = User::all();            
+
+            $texto=trim($request->get('buscar'));
+            $usuarios = DB::table('users')
+                ->select('username','name')
+                ->where('username','LIKE','%'.$texto.'%')
+                ->orWhere('name','LIKE','%'.$texto.'%')
+                ->orderBy('username')
+                ->paginate(5);
+                
+            return view('buscador.buscador',compact('usuarios'));
+        }
 
 }

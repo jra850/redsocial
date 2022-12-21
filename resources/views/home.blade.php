@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Página Principal
+    BOARD
 @endsection
 
 @section('contenido')
@@ -13,8 +13,11 @@
             <a href="{{ route('posts.show', ['post' => $post, 'user' => $post->user ]) }}">
                 <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
                 <hr>
+                                   
                 <p class="text-center font-bold" > {{ $post->user->username}} </p>
-                <p class="text-center text-gray-500" > {{ $post->titulo }} </p>                
+              
+                <p class="text-center text-gray-500" > {{ $post->titulo }} </p>    
+                
             </a>
             
         </div>
@@ -31,3 +34,4 @@
 
 
 @endsection
+

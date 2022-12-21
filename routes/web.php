@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ComentarioController;
-use App\Http\Controllers\FollowerController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FindController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PerfilController;
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,7 @@ Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.in
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
 
+// buscador
+//Route::post('/buscador/search', [PostController::class, 'index2'])->name('buscador');
+Route::get('/buscador/search', [PostController::class, 'index2'])->name('buscador');
 
