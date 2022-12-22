@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo')
-    politica de privacidad
+    Politica de Privacidad
 @endsection
 
 @section('contenido')

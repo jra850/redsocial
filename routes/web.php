@@ -65,3 +65,6 @@ Route::get('/buscador/search', [PostController::class, 'index2'])->name('buscado
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+
+//privacidad
+Route::get('/politica-privacidad', [RegisterController::class, 'privacidad'])->name('privacidad');

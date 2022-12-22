@@ -53,6 +53,11 @@ class RegisterController extends Controller
         //redireccionar
         return redirect()->route('posts.index', auth()->user());
 
+    }
 
+
+    public function privacidad()
+    {
+        return view('politica-privacidad');
     }
 }
