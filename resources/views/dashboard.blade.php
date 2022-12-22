@@ -19,7 +19,7 @@
             <div class="md:8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
                 <div class="flex items-center gap-2">
                  
-                <p class="text-teal-500 font-extrabold text-2xl"> {{ $user->username}} </p>
+                <p class="text-black font-extrabold text-2xl"> {{ $user->username}} </p>
 
                 @auth
                     @if($user->id === auth()->user()->id)

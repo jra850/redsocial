@@ -93,14 +93,27 @@ class PostController extends Controller
             //$usuarios = User::all();            
 
             $texto=trim($request->get('buscar'));
-            $usuarios = DB::table('users')
+            /*$usuarios = DB::table('users')
                 ->select('username','name')
                 ->where('username','LIKE','%'.$texto.'%')
                 ->orWhere('name','LIKE','%'.$texto.'%')
                 ->orderBy('username')
                 ->paginate(5);
-                
-            return view('buscador.buscador',compact('usuarios'));
-        }
+
+            return view('buscador.buscador',compact('usuarios')); */
+
+            $usuarios = DB::table('users')
+                ->join('posts', 'users.id', '=', 'posts.user_id')
+                ->join('comentarios', 'posts.id', '=', 'comentarios.post_id')
+                /*->select('users.username', 'posts.titulo', )*/
+                ->where('users.username', 'LIKE', '%' . $texto . '%')
+                ->orWhere('users.name', 'LIKE', '%' . $texto . '%')
+                ->orWhere('posts.titulo','LIKE','%'.$texto.'%')
+                ->orWhere('comentarios.comentario','LIKE','%'.$texto.'%');
+
+            $usuarios = $usuarios->get();
+
+                return view('buscador.buscador',compact('usuarios'));
+            }
 
 }

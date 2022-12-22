@@ -1,16 +1,11 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Buscar Usuarios
+    
 @endsection
 
 
-@section('contenido')
-
-    
-
-
-
+@section('contenido') 
 
     <div class="container text-center uppercase">
         <div>
@@ -52,19 +47,19 @@
                       Usuario
                     </th>
                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                      Nombre
+                      Título
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                 @foreach ($usuarios as $usuario)
-                  <tr class="bg-white border-b" onclick="window.location='/{{$usuario->username}}';" style="cursor: pointer">
+                  <tr class="bg-white border-b"  style="cursor: pointer">
                    
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" onclick="window.location='/{{$usuario->username}}';">
                         {{$usuario->username}}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$usuario->name}}
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" onclick="window.location='/{{$usuario->username}}/posts/{{$usuario->post_id}}';">
+                        {{$usuario->titulo}}
                     </td>
 
                   </tr>

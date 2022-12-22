@@ -12,8 +12,8 @@
 
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
-            <div class="container mx-auto flex justify-between item-center">
-                <a href="{{ route('home') }}" class="text text-4xl font-extrabold text-teal-500">
+            <div class="container mx-auto flex justify-between item-center">                
+                <a href="{{ route('home') }}" class="text text-4xl font-extrabold text-teal-500">                     
                     TIDME
                 </a>
 
@@ -21,14 +21,12 @@
 
                 <nav class="flex gap-2 items-center" >
 
-                    <a href="/buscador/search" class="flex items-center gap-2 bg-white border p-2 text-teal-500 rounded text-sm uppercase 
+                    <a href="/buscador/search" class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded text-sm uppercase 
                     font-bold cursor-pointer" href="{{route('posts.create')}}">
                         
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                          
-                          
+                      </svg>                          
                         Buscar
                     </a>  
                 </nav>
@@ -58,7 +56,7 @@
                     <a class="font-bold text-gray-600 text-sm" 
                         href="{{route('posts.index', auth()->user()->username)}}"> 
                         Hola: 
-                        <span class="font-normal"> 
+                        <span class="font-extrabold text-teal-500"> 
                             {{auth()->user()->username}}   
                         </span>
                     </a>
@@ -94,11 +92,27 @@
         </main>
 
         <hr class="text-teal-500 ">
-        <footer class="mt-10 text-center p-5 text-teal-500 font-bold uppercase">
-            
 
-                    TIDME - Todos los derechos reservados           
-                    {{now()->year}}
+        <footer class="mt-10 text-center p-5 text-teal-500 font-bold uppercase">
+
+           <!--<div > 
+            <nav class="flex gap-2 items-center">
+            <a href="https://www.instagram.com/xcooters/">
+               <img src="img/instagram.png" width="40" height="40" >
+            </a>
+            <a href="https://www.xcooters.com/">
+               <img src="img/xcooters.png" width="40" height="40" class="rounded-full">                            
+            </a>   
+            </nav> 
+                <a >
+                    TIDME - Designed & Developed by XCOOTERS {{now()->year}}
+                </a>            
+                
+           </div> -->
+
+           <a >
+            TIDME - Designed & Developed by XCOOTERS {{now()->year}}
+        </a>   
 
             </footer>
 
