@@ -103,8 +103,8 @@ class PostController extends Controller
             return view('buscador.buscador',compact('usuarios')); */
 
             $usuarios = DB::table('users')
-                ->join('posts', 'users.id', '=', 'posts.user_id')
-                ->join('comentarios', 'posts.id', '=', 'comentarios.post_id')
+                ->leftjoin('posts', 'users.id', '=', 'posts.user_id')
+                ->leftjoin('comentarios', 'posts.id', '=', 'comentarios.post_id')
                 /*->select('users.username', 'posts.titulo', )*/
                 ->where('users.username', 'LIKE', '%' . $texto . '%')
                 ->orWhere('users.name', 'LIKE', '%' . $texto . '%')
