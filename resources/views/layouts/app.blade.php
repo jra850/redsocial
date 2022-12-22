@@ -8,6 +8,49 @@
         <title>TIDME - @yield('titulo')</title>
         @vite('resources/css/app.css')         
         @vite('resources/js/app.js')
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script>
+            
+function GetCookie(name) {
+var arg=name+"=";
+var alen=arg.length;
+var clen=document.cookie.length;
+var i=0;
+
+while (i<clen) {
+    var j=i+alen;
+
+    if (document.cookie.substring(i,j)==arg)
+        return "1";
+    i=document.cookie.indexOf(" ",i)+1;
+    if (i==0)
+        break;
+}
+
+return null;
+}
+
+function aceptar_cookies(){
+var expire=new Date();
+expire=new Date(expire.getTime()+7776000000);
+document.cookie="cookies_surestao=aceptada; expires="+expire;
+
+var visit=GetCookie("cookies_surestao");
+
+if (visit==1){
+    popbox3();
+}
+}
+
+$(function() {
+var visit=GetCookie("cookies_surestao");
+if (visit==1){ popbox3(); }
+});
+
+function popbox3() {
+$('#overbox3').toggle();
+}
+            </script>
     </head>
 
     <body class="bg-gray-100">
@@ -114,8 +157,20 @@
             TIDME - Designed & Developed by XCOOTERS {{now()->year}}
         </a>   
 
+
+
             </footer>
 
 
+       
+            <div id="overbox3">
+                <div id="infobox3">
+                    <p>Esta web utiliza cookies para obtener datos estadísticos de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
+                    <a href="politica-privacidad.php">Más información</a>
+                    <a onclick="aceptar_cookies();" style="cursor:pointer;">X Cerrar</a></p>
+                </div>
+            </div>
     </body>
+
+    
 </html>
