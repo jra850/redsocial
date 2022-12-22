@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\FindController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
@@ -60,3 +61,7 @@ Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'
 //Route::post('/buscador/search', [PostController::class, 'index2'])->name('buscador');
 Route::get('/buscador/search', [PostController::class, 'index2'])->name('buscador');
 
+//almacenar imagenes produccion
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
