@@ -105,7 +105,7 @@ class PostController extends Controller
             $usuarios = DB::table('users')
                 ->leftjoin('posts', 'users.id', '=', 'posts.user_id')
                 ->leftjoin('comentarios', 'posts.id', '=', 'comentarios.post_id')
-                /*->select('users.username', 'posts.titulo', )*/
+                ->select('users.username', 'posts.titulo', 'posts.id')
                 ->where('users.username', 'LIKE', '%' . $texto . '%')
                 ->orWhere('users.name', 'LIKE', '%' . $texto . '%')
                 ->orWhere('posts.titulo','LIKE','%'.$texto.'%')

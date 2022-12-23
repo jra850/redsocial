@@ -58,7 +58,7 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" onclick="window.location='/{{$usuario->username}}';">
                         {{$usuario->username}}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" onclick="window.location='/{{$usuario->username}}/posts/{{$usuario->post_id}}';">
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" onclick="window.location='/{{$usuario->username}}/posts/{{$usuario->id}}';">
                         {{$usuario->titulo}}
                     </td>
 
